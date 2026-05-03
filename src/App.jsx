@@ -266,17 +266,18 @@ const TREINO_DATA = {
 
 const TREINO_SEM_ACADEMIA = {
   semana: [
-    { dia: "Segunda", tipo: "B", cardio: "Natação 20min / Bicicleta 20min", cor: "#3BBFA0" },
-    { dia: "Terça", tipo: "A", cardio: "Caminhada leve 20min", cor: "#E2635A" },
-    { dia: "Quarta", tipo: "descanso", cardio: null, cor: null },
-    { dia: "Quinta", tipo: "B", cardio: "Natação 20min / Bicicleta 20min", cor: "#3BBFA0" },
-    { dia: "Sexta", tipo: "A", cardio: "Caminhada leve 20min", cor: "#E2635A" },
+    { dia: "Segunda", tipo: "B", cardio: null, cor: "#3BBFA0" },
+    { dia: "Terça", tipo: "A", cardio: "Nado Peito — força 15min", cor: "#E2635A" },
+    { dia: "Quarta", tipo: "circuito", cardio: "Nado Peito — força 15min", cor: "#8B7FD4" },
+    { dia: "Quinta", tipo: "B", cardio: null, cor: "#3BBFA0" },
+    { dia: "Sexta", tipo: "A", cardio: "Nado Borboleta — força 12min", cor: "#E2635A" },
     { dia: "Sáb/Dom", tipo: "descanso", cardio: null, cor: null },
   ],
   treinoA: {
     label: "Treino A — Membros Superiores",
     tag: "Braços",
     dias: "Ter / Sex",
+    foco: "Tempo 3-1-2 em todos os exercícios (3s excêntrico · 1s pausa · 2s concêntrico) — principal mecanismo de progressão sem carga variável. Terça: Nado Peito após os elásticos (adutores). Sexta: Nado Borboleta (tríceps + ombro). Whey entre os elásticos e a natação.",
     exercicios: [
       {
         nome: "Flexão de Braço", volume: "4×10", obs: "Peito · Tríceps · Deltóide anterior",
@@ -284,11 +285,11 @@ const TREINO_SEM_ACADEMIA = {
         musculo: "Peitoral maior (primário) · Tríceps · Deltóide anterior",
         passos: [
           "Mãos no chão, um pouco mais abertas que a largura dos ombros. Corpo em linha reta da cabeça ao calcanhar.",
-          "Desça o peito em direção ao chão mantendo os cotovelos a ~45° do corpo — não abrindo totalmente para os lados.",
-          "Empurre de volta sem travar os cotovelos no topo. Expire na subida.",
-          "Se não conseguir completar as 10 reps em posição completa, apoie os joelhos para reduzir a carga.",
+          "Desça o peito em direção ao chão mantendo os cotovelos a ~45° do corpo.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s no fundo, empurre em 2s.",
+          "Se não conseguir completar as 10 reps em posição completa, apoie os joelhos.",
         ],
-        dica: "Mãos na largura dos ombros ativa mais o tríceps. Mãos mais abertas ativa mais o peito. Para este protocolo, prefira mais fechada.",
+        dica: "Mãos mais fechadas ativa mais o tríceps — padrão preferido neste protocolo.",
       },
       {
         nome: "Rosca com Banda", volume: "4×12", obs: "Bíceps · Braquial",
@@ -296,23 +297,23 @@ const TREINO_SEM_ACADEMIA = {
         musculo: "Bíceps braquial (primário) · Braquial · Braquiorradial",
         passos: [
           "Pise no centro da banda com os dois pés. Segure as alças com pegada supinada (palmas para cima).",
-          "Mantenha os cotovelos fixos ao lado do corpo — o mesmo princípio do halter.",
-          "Contraia o bíceps e suba até a altura dos ombros. Expire na subida.",
-          "Desça lentamente (2–3 segundos). Esse controle na descida é onde o músculo cresce.",
+          "Mantenha os cotovelos fixos ao lado do corpo.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s com braço estendido, suba em 2s.",
+          "Esse controle na descida é onde o músculo cresce.",
         ],
-        dica: "Progrida trocando para bandas mais pesadas quando as repetições finais ficarem fáceis. O mecanismo de progressão é idêntico ao halter.",
+        dica: "Progrida trocando para bandas mais pesadas quando as repetições finais ficarem fáceis.",
       },
       {
         nome: "Tríceps com Banda (âncora de porta)", volume: "4×15", obs: "Porção longa — foco flacidez",
         tipo: "banda", substitui: "Tríceps Pulley (Corda)",
         musculo: "Tríceps braquial — porção longa (primário) · Porção lateral",
         passos: [
-          "Prenda a banda no topo da porta (feche a porta com a banda passando pelo batente).",
-          "De costas para a porta. Segure as alças com as palmas voltadas uma para a outra, cotovelos dobrados a ~90°.",
+          "Prenda a banda no topo da porta. De costas para a porta, segure as alças com palmas voltadas uma para a outra.",
           "Incline levemente o tronco para frente. Empurre as alças para baixo estendendo os cotovelos.",
           "No ponto mais baixo, abra levemente as mãos para os lados — mesmo gesto da corda no pulley.",
+          "Tempo 3-1-2: suba em 3s, pausa 1s no topo dobrado, desça em 2s.",
         ],
-        dica: "Este é o exercício que mais se aproxima do pulley de academia. A ativação da porção longa do tríceps é equivalente se a âncora estiver alta o suficiente.",
+        dica: "Este é o exercício que mais se aproxima do pulley de academia para a porção longa.",
       },
       {
         nome: "Desenvolvimento com Banda", volume: "3×12", obs: "Deltóide · Trapézio",
@@ -320,11 +321,11 @@ const TREINO_SEM_ACADEMIA = {
         musculo: "Deltóide medial e anterior (primário) · Trapézio superior · Tríceps",
         passos: [
           "Pise no centro da banda com os dois pés. Segure as alças na altura dos ombros, cotovelos a ~90°.",
-          "Empurre as alças para cima até os braços ficarem quase estendidos acima da cabeça.",
-          "Não eleve os ombros em direção às orelhas durante o movimento.",
-          "Desça controlado de volta à altura dos ombros.",
+          "Empurre as alças para cima até os braços ficarem quase estendidos.",
+          "Não eleve os ombros em direção às orelhas.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s na altura dos ombros, suba em 2s.",
         ],
-        dica: "Se a resistência for irregular entre os dois lados, ajuste a posição do pé sobre a banda. Pé centralizado garante tensão simétrica.",
+        dica: "Pé centralizado na banda garante tensão simétrica entre os dois lados.",
       },
       {
         nome: "Remada com Banda (âncora de porta)", volume: "3×12", obs: "Dorsal · Romboides · Equilíbrio push/pull",
@@ -334,21 +335,35 @@ const TREINO_SEM_ACADEMIA = {
           "Prenda a banda na parte alta da porta. Sente-se no chão de frente para a porta.",
           "Segure as alças com os braços estendidos à frente, palmas para baixo.",
           "Puxe as alças em direção ao peito pensando em 'trazer os cotovelos para baixo e para o lado do corpo'.",
-          "As escápulas devem se retrair e descer no ponto final. Volte controlado.",
+          "Tempo 3-1-2: estenda em 3s, pausa 1s com braços estendidos, puxe em 2s.",
         ],
-        dica: "Não é idêntico ao puxador, mas ativa dorsal e romboides de forma eficaz. O que importa é o padrão de movimento: puxada vertical com cotovelos descendo.",
+        dica: "As escápulas devem se retrair e descer no ponto final.",
       },
       {
         nome: "Elevação Lateral com Banda", volume: "3×15", obs: "Deltóide medial · Definição de ombro",
         tipo: "banda", substitui: "Elevação Lateral",
         musculo: "Deltóide medial (primário) · Supraspinhal",
         passos: [
-          "Pise no centro da banda com os dois pés, afastados na largura dos quadris. Segure as alças com leve flexão nos cotovelos.",
+          "Pise no centro da banda com os dois pés. Segure as alças com leve flexão nos cotovelos.",
           "Eleve os braços lateralmente até a altura dos ombros — não acima.",
-          "A resistência da banda aumenta conforme você sobe — ao contrário do halter. Isso é normal.",
-          "Desça controlado.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s com braços ao lado do corpo, suba em 2s.",
+          "A resistência da banda aumenta conforme você sobe — isso é normal.",
         ],
-        dica: "Use a banda mais leve disponível. Com banda pesada, o trapézio assume o movimento e o deltóide medial perde o trabalho.",
+        dica: "Use a banda mais leve disponível. Com banda pesada, o trapézio assume o movimento.",
+      },
+    ],
+    natacao: [
+      {
+        label: "Terça — Nado Peito",
+        series: "4×30 ciclos completos",
+        pausa: "60s entre séries",
+        instrucao: "Foco no chute: fechar as pernas com força, sentir a contração na coxa interna. A água oferece resistência na fase de fechamento — esse é o estímulo de adutor da sessão. Tome o Whey antes de entrar na água.",
+      },
+      {
+        label: "Sexta — Nado Borboleta",
+        series: "4×20 ciclos de braçada",
+        pausa: "45s entre séries",
+        instrucao: "Foco na puxada: braço entra estendido, empurra até o quadril. Sentir o trabalho no tríceps e ombro. Ritmo controlado — não é sprint. Tome o Whey antes de entrar na água.",
       },
     ],
     core: {
@@ -357,7 +372,7 @@ const TREINO_SEM_ACADEMIA = {
         {
           nome: "Elevação de Pernas (no chão)", volume: "3×12", obs: "Reto abdominal inferior",
           passos: ["Deitada de costas, mãos sob os glúteos para suporte lombar.", "Eleve as pernas juntas até 90°, mantendo o core contraído.", "Desça lentamente sem encostar os pés no chão entre as reps."],
-          dica: "Se sentir compensação na lombar, reduza a amplitude — desça somente até onde o core aguentar.",
+          dica: "Se sentir compensação na lombar, reduza a amplitude.",
         },
         {
           nome: "Crunch com Rotação", volume: "3×12", obs: "Oblíquos · Cintura",
@@ -376,7 +391,7 @@ const TREINO_SEM_ACADEMIA = {
     label: "Treino B — Inferior · Coxa & Quadril",
     tag: "Anti-flacidez",
     dias: "Seg / Qui",
-    foco: "Coxa interna + lateral do quadril. A adutora de academia não tem substituto direto com banda — compense com maior foco na contração e pausa de 2s desde a semana 1.",
+    foco: "Tempo 3-1-2 em todos os exercícios (3s excêntrico · 1s pausa · 2s concêntrico). Adutores trabalham frescos — nado peito está na quarta, não após este treino. Pausa de 2s na adução deitada desde a semana 1.",
     exercicios: [
       {
         nome: "Agachamento Sumo com Banda", volume: "4×12", obs: "Adutores · Glúteo · Quadríceps",
@@ -384,35 +399,35 @@ const TREINO_SEM_ACADEMIA = {
         musculo: "Adutores (primário) · Glúteo máximo · Quadríceps",
         passos: [
           "Pise na banda com os dois pés bem afastados, dedos apontados para fora ~45°. Segure as alças à frente do corpo.",
-          "A banda cria tensão desde o início — isso é o que adiciona carga ao movimento.",
           "Desça mantendo o tronco ereto e os joelhos alinhados com a ponta dos pés.",
-          "Suba contraindo glúteo e adutores no topo.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s no fundo, suba em 2s contraindo glúteo e adutores.",
+          "Posicione os pés com distância suficiente para a banda ter tensão desde o início.",
         ],
-        dica: "Posicione os pés com distância suficiente para a banda ter tensão desde o início do movimento, não só no topo.",
+        dica: "Quanto mais afastados os pés, mais recrutamento de adutores.",
       },
       {
         nome: "Hip Thrust com Banda", volume: "4×15", obs: "Glúteo máximo",
         tipo: "banda", substitui: "Hip Thrust com Barra",
         musculo: "Glúteo máximo (primário) · Isquiotibiais · Core",
         passos: [
-          "Apoie o ombro no sofá ou cadeira resistente. Passe a banda sobre os quadris e ancore as pontas com as mãos ou sob os pés.",
+          "Apoie o ombro no sofá ou cadeira. Passe a banda sobre os quadris e ancore as pontas com as mãos ou sob os pés.",
           "Pés na largura dos ombros, joelhos dobrados a ~90°.",
-          "Empurre o quadril para cima até o corpo formar uma linha do ombro ao joelho.",
-          "A carga é menor que a barra — compense adicionando pausa de 2s no topo desde a semana 1.",
+          "Empurre o quadril para cima até o corpo formar uma linha do ombro ao joelho. Pausa de 2s no topo.",
+          "Desça em 3s — fase excêntrica lenta compensa a carga menor vs barra.",
         ],
-        dica: "Se a banda escorregar do quadril, dobre um pano ou use uma almofada fina como proteção e base.",
+        dica: "Se a banda escorregar, use um pano dobrado como base e proteção no quadril.",
       },
       {
         nome: "Adução Deitada com Banda", volume: "4×15", obs: "Coxa interna — foco principal flacidez",
         tipo: "banda", substitui: "Cadeira Adutora (aproximação limitada)",
         musculo: "Adutores — grácil, pectíneo, adutor longo/curto/magno",
         passos: [
-          "Prenda a tornozeira no tornozelo da perna que vai trabalhar. Âncora da banda na parte baixa da porta ou pé de móvel, lateral ao corpo.",
+          "Prenda a tornozeira no tornozelo. Âncora da banda na parte baixa da porta ou pé de móvel, lateral ao corpo.",
           "Deite de lado com a perna de trabalho embaixo. A banda cria resistência para fechar a perna.",
           "Feche a perna de baixo em direção à de cima contra a resistência da banda.",
-          "Pause 2 segundos com a perna fechada. Esse detalhe é essencial para compensar a carga menor.",
+          "Pausa de 2s com a perna fechada — obrigatório desde a semana 1 para compensar carga menor.",
         ],
-        dica: "Este é o substituto mais limitado do protocolo — a cadeira adutora permite progressão de carga precisa que a banda não replica. Compense com a pausa de 2s em toda rep e foco máximo na contração.",
+        dica: "Substituto mais limitado do protocolo. A pausa de 2s e o foco na contração são essenciais para aproximar o estímulo da cadeira adutora.",
       },
       {
         nome: "Abdução com Banda Loop", volume: "4×20", obs: "Glúteo médio · Lateral do quadril",
@@ -421,10 +436,10 @@ const TREINO_SEM_ACADEMIA = {
         passos: [
           "Posicione a banda loop acima dos joelhos.",
           "Sentada numa cadeira com a banda resistindo à abertura, abra as pernas contra a resistência.",
-          "Abra até sentir contração lateral no glúteo. Feche controlado.",
-          "Alternativa: deitada de costas, joelhos dobrados, abrir os joelhos contra a banda.",
+          "Tempo 3-1-2: feche em 3s, pausa 1s com pernas fechadas, abra em 2s.",
+          "Alternativa deitada: de costas, joelhos dobrados, abrir os joelhos contra a banda.",
         ],
-        dica: "Sentada é o padrão mais próximo da abdutora. A banda loop replica bem este movimento.",
+        dica: "Sentada é o padrão mais próximo da abdutora de academia.",
       },
       {
         nome: "Agachamento Búlgaro", volume: "3×10 cada lado", obs: "Quadríceps · Glúteo — sobrecarga unilateral",
@@ -433,10 +448,10 @@ const TREINO_SEM_ACADEMIA = {
         passos: [
           "Coloque o pé traseiro elevado em uma cadeira ou sofá. Pé da frente à frente do corpo.",
           "Desça até a coxa da frente ficar paralela ao chão. O joelho traseiro aponta para baixo.",
-          "Empurre pelo calcanhar da frente para subir. O corpo fica levemente inclinado para frente — isso é normal.",
-          "Nas primeiras sessões, use amplitude reduzida até ganhar equilíbrio.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s no fundo, suba em 2s empurrando pelo calcanhar da frente.",
+          "Nas primeiras sessões use amplitude reduzida até ganhar equilíbrio.",
         ],
-        dica: "Mais difícil do que parece na primeira vez. Segure levemente em algo para equilíbrio nas primeiras sessões. Quando estabilizar, você pode adicionar a banda pisada sob o pé para carga extra.",
+        dica: "Mais difícil do que parece na primeira vez. Segure levemente em algo para equilíbrio nas primeiras sessões.",
       },
       {
         nome: "Curl de Isquio com Banda (em pé)", volume: "3×15", obs: "Isquiotibiais · Posterior da coxa",
@@ -445,10 +460,10 @@ const TREINO_SEM_ACADEMIA = {
         passos: [
           "Prenda a tornozeira no tornozelo e ancore a banda na parte baixa da porta.",
           "Em pé, de frente para a porta. Segure levemente para equilíbrio.",
-          "Flexione o joelho puxando o calcanhar em direção ao glúteo contra a resistência da banda.",
-          "Desça lentamente (3 segundos) — a fase excêntrica é onde o isquiotibial mais trabalha.",
+          "Flexione o joelho puxando o calcanhar em direção ao glúteo contra a resistência.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s com perna estendida, suba em 2s.",
         ],
-        dica: "A amplitude e carga são menores que a mesa flexora. Compense com a fase excêntrica lenta de 3s em cada repetição.",
+        dica: "A fase excêntrica lenta de 3s é onde o isquiotibial mais trabalha. Não deixe a perna cair.",
       },
       {
         nome: "Abdução com Tornozeira + Banda", volume: "3×15", obs: "Glúteo médio · Isolamento lateral",
@@ -456,23 +471,23 @@ const TREINO_SEM_ACADEMIA = {
         musculo: "Glúteo médio (primário) · Glúteo mínimo",
         passos: [
           "Prenda a tornozeira no tornozelo e ancore a banda na parte baixa da porta. Fique de lado para a porta.",
-          "Com leve flexão no joelho de apoio, eleve a perna com a tornozeira lateralmente até ~30–40°.",
+          "Com leve flexão no joelho de apoio, eleve a perna lateralmente até ~30–40°.",
           "Mantenha o tronco ereto — não incline para compensar.",
-          "Desça controlado sem pousar o pé entre as repetições.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s com perna ao lado, suba em 2s.",
         ],
-        dica: "Este é o substituto mais direto do protocolo — o padrão de movimento é quase idêntico ao cabo de academia.",
+        dica: "Substituto mais direto do protocolo — padrão de movimento quase idêntico ao cabo de academia.",
       },
       {
-        nome: "Stiff com Banda", volume: "3×12", obs: "Isquiotibiais · Glúteo · Lombar",
+        nome: "Romanian Deadlift com Banda", volume: "3×12", obs: "Isquiotibiais · Glúteo · Lombar",
         tipo: "banda", substitui: "Stiff com Halteres",
         musculo: "Isquiotibiais (primário) · Glúteo máximo · Eretores da coluna",
         passos: [
           "Pise na banda com os dois pés na largura dos quadris. Segure as alças à frente das coxas.",
-          "Incline o tronco para frente empurrando o quadril para trás — joelhos ligeiramente flexionados.",
+          "Incline o tronco para frente empurrando o quadril para trás — joelhos levemente flexionados.",
           "Desça as alças próximas às pernas até sentir o alongamento nos isquiotibiais.",
-          "Suba empurrando o quadril para frente, contraindo glúteo no topo.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s no fundo, suba em 2s empurrando o quadril para frente.",
         ],
-        dica: "A banda oferece mais resistência no topo (posição ereta) do que no fundo — inverso do halter. Desça mais devagar para compensar.",
+        dica: "A banda oferece mais resistência no topo do que no fundo — inverso do halter. Desça mais devagar para compensar.",
       },
     ],
     core: {
@@ -481,7 +496,7 @@ const TREINO_SEM_ACADEMIA = {
         {
           nome: "Superman com Pulso", volume: "3×15", obs: "Lombar · Glúteo · Cadeia posterior",
           passos: ["Deitada de bruços, braços estendidos à frente.", "Eleve simultaneamente braços e pernas. Segure 2 segundos.", "Desça controlado sem pousar completamente entre as reps."],
-          dica: "Substitui o Banco Romano (que requer equipamento). O padrão de ativação da cadeia posterior é equivalente.",
+          dica: "Substitui o Banco Romano. Padrão de ativação da cadeia posterior equivalente.",
         },
         {
           nome: "Superman com Pulso — Variação", volume: "3×12", obs: "+2s pausa · Trapézio inferior",
@@ -491,17 +506,96 @@ const TREINO_SEM_ACADEMIA = {
         {
           nome: "Prancha com Alcance Alternado", volume: "3×10", obs: "Cada lado · Core profundo",
           passos: ["Em posição de prancha alta. Core e glúteo contraídos.", "Estenda um braço à frente sem rotacionar o quadril.", "Retorne e alterne os lados."],
-          dica: "Sem mudança em relação ao protocolo de academia.",
+          dica: "Quanto menos o quadril oscilar, mais o core profundo está trabalhando.",
+        },
+      ],
+    },
+  },
+  circuitoQuarta: {
+    label: "Circuito Quarta — Upper Body Complementar",
+    tag: "Tríceps + Ombro",
+    dias: "Qua",
+    foco: "30 min · 3× frequência semanal de upper body — fator chave para combater flacidez de braço. Tempo 3-1-2 em todos os exercícios. Após o circuito: Nado Peito 4×30 ciclos — adutores frescos, máximo recrutamento de coxa interna.",
+    exercicios: [
+      {
+        nome: "Extensão Overhead com Banda", volume: "3×15", obs: "Tríceps porção longa — alongamento máximo",
+        tipo: "banda",
+        musculo: "Tríceps braquial — porção longa (primário)",
+        passos: [
+          "Âncora baixa — prenda a banda no pé ou embaixo de uma cadeira. Segure as alças atrás da cabeça com os dois braços.",
+          "Cotovelos apontados para cima, braços dobrados. Estenda os braços para cima até quase travar.",
+          "Tempo 3-1-2: desça em 3s, pausa 1s no ponto de maior alongamento (braços dobrados atrás da cabeça), suba em 2s.",
+          "Não encurte a amplitude — o alongamento máximo no fundo é o que diferencia este exercício.",
+        ],
+        dica: "Único exercício do protocolo que alonga completamente a porção longa antes de contrair. Essencial para combater flacidez do braço.",
+      },
+      {
+        nome: "Face Pull com Banda", volume: "3×15", obs: "Deltóide posterior · Manguito rotador",
+        tipo: "banda",
+        musculo: "Deltóide posterior (primário) · Manguito rotador · Romboides",
+        passos: [
+          "Âncora na altura do rosto — porta ou similar. Segure as alças com palmas para baixo.",
+          "Puxe a banda em direção ao rosto, cotovelos para fora e acima dos ombros.",
+          "No ponto final, abra as mãos para os lados como se estivesse emoldurando o rosto. Pausa de 1s.",
+          "Volte controlado em 2–3 segundos.",
+        ],
+        dica: "Mantém o ombro saudável para aguentar o borboleta ao longo de maio. Não é estético — é preventivo.",
+      },
+      {
+        nome: "Tricep Kickback com Banda", volume: "3×12", obs: "Tríceps porção lateral",
+        tipo: "banda",
+        musculo: "Tríceps braquial — porção lateral (primário)",
+        passos: [
+          "Pise na banda com o pé do mesmo lado do braço que vai trabalhar. Incline o tronco para frente ~45°.",
+          "Cotovelo fixo ao lado do corpo dobrado a 90°. Estenda o braço para trás até a extensão completa.",
+          "Tempo 3-1-2: dobre em 3s, pausa 1s com cotovelo dobrado, estenda em 2s.",
+          "Pausa de 1s no ponto estendido — é onde o estímulo acontece.",
+        ],
+        dica: "Porção lateral do tríceps não é coberta pelo overhead nem pelo pushdown. Este exercício fecha o gap.",
+      },
+      {
+        nome: "Rotação Externa com Banda", volume: "3×15", obs: "Manguito rotador — prevenção",
+        tipo: "banda",
+        musculo: "Infraespinhal · Redondo menor (manguito rotador)",
+        passos: [
+          "Cotovelo colado ao lado do corpo dobrado a 90°. Segure a banda com a mão.",
+          "Rode o antebraço para fora mantendo o cotovelo fixo. Amplitude pequena — não force.",
+          "Movimento lento nos dois sentidos. Não é sobre carga — é sobre ativação.",
+          "Faça dos dois lados.",
+        ],
+        dica: "Sem objetivo estético. Com borboleta 2× por semana, o manguito precisa deste trabalho para não inflamar.",
+      },
+    ],
+    natacao: [
+      {
+        label: "Nado Peito — Adutores",
+        series: "4×30 ciclos completos",
+        pausa: "60s entre séries",
+        instrucao: "Foco no chute: fechar as pernas com força, sentir a contração na coxa interna. A água oferece resistência na fase de fechamento — adutores frescos neste dia garantem qualidade máxima do estímulo. Tome o Whey entre o circuito e a natação.",
+      },
+    ],
+    core: {
+      label: "Core A — Manutenção",
+      exercicios: [
+        {
+          nome: "Crunch Simples", volume: "3×15", obs: "Reto abdominal",
+          passos: ["Deitada, joelhos dobrados, mãos atrás da cabeça.", "Suba o tronco em direção aos joelhos. Expire na subida.", "Desça controlado sem pousar completamente."],
+          dica: "Volume reduzido na quarta — o core não precisa de trabalho pesado neste dia.",
+        },
+        {
+          nome: "Prancha Lateral", volume: "3×30s", obs: "Cada lado · Oblíquo",
+          passos: ["Apoie-se no antebraço e no pé, corpo em linha reta lateral.", "Mantenha o quadril elevado durante toda a duração.", "Troque de lado."],
+          dica: "Manutenção — sem exagerar no volume de quarta.",
         },
       ],
     },
   },
   comandos: [
-    { cmd: "/check-treino", desc: "Analisar aderência da semana", color: COLORS.carb, example: "/check-treino — fiz seg, ter, qui. Búlgaro ainda com equilíbrio travado.", tip: "Descreva também como se sentiu com os elásticos." },
+    { cmd: "/check-treino", desc: "Analisar aderência da semana", color: COLORS.carb, example: "/check-treino — fiz seg, ter, qui. Borboleta na sexta foi pesado.", tip: "Descreva também como se sentiu com os elásticos e a natação." },
     { cmd: "/check-carga", desc: "Verificar progressão de banda vs semanas anteriores", color: COLORS.protein, example: "/check-carga — rosca com banda verde ficou fácil na semana 3.", tip: "Registre qual banda está usando em cada exercício." },
     { cmd: "/ajuste-treino", desc: "Adaptar protocolo se precisar de variação", color: COLORS.fat, example: "/ajuste-treino — não tenho tornozeira, como faço o curl?", tip: "Use quando algum exercício não estiver funcionando com o equipamento disponível." },
-    { cmd: "/dor [músculo]", desc: "Orientar sobre dor ou desconforto", color: COLORS.danger, example: "/dor joelho — búlgaro está dando pontada no joelho da frente.", tip: "O Búlgaro é o exercício que mais gera compensações no joelho nas primeiras sessões." },
-    { cmd: "/semana [descrição]", desc: "Registrar semana para histórico", color: COLORS.muted, example: "/semana semana maio 1 concluída. Adução deitada ficou difícil de executar.", tip: "Fundamental para retomar a progressão quando voltar à academia em junho." },
+    { cmd: "/dor [músculo]", desc: "Orientar sobre dor ou desconforto", color: COLORS.danger, example: "/dor ombro — dói após o borboleta.", tip: "O borboleta e o circuito de quarta acumulam no ombro. Dor articular = parar." },
+    { cmd: "/semana [descrição]", desc: "Registrar semana para histórico", color: COLORS.muted, example: "/semana semana maio 1 concluída. Nado peito bem, borboleta cansativo.", tip: "Fundamental para retomar a progressão quando voltar à academia em junho." },
   ],
 };
 
@@ -723,12 +817,7 @@ function TipoBadge({ tipo }) {
   if (!tipo) return null;
   const isBanda = tipo === "banda";
   return (
-    <span style={{
-      fontSize: 9, fontWeight: 600, letterSpacing: "0.04em",
-      color: isBanda ? COLORS.carb : COLORS.muted,
-      background: isBanda ? `${COLORS.carb}18` : "var(--color-background-tertiary)",
-      borderRadius: 4, padding: "2px 5px", flexShrink: 0,
-    }}>
+    <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: "0.04em", color: isBanda ? COLORS.carb : COLORS.muted, background: isBanda ? `${COLORS.carb}18` : "var(--color-background-tertiary)", borderRadius: 4, padding: "2px 5px", flexShrink: 0 }}>
       {isBanda ? "ELÁSTICO" : "CORPO"}
     </span>
   );
@@ -775,6 +864,29 @@ function ExercicioRow({ nome, volume, obs, musculo, passos, dica, tipo, substitu
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function NatacaoBlock({ natacao, accentColor }) {
+  if (!natacao || natacao.length === 0) return null;
+  const cor = accentColor || "#378ADD";
+  return (
+    <div style={{ marginTop: 14, background: `${cor}10`, borderRadius: 10, padding: "12px 14px", borderLeft: `2px solid ${cor}` }}>
+      <div style={{ fontSize: 10, fontWeight: 500, color: cor, letterSpacing: "0.06em", marginBottom: 10 }}>
+        NATAÇÃO — FORÇA COMPLEMENTAR
+      </div>
+      {natacao.map((n, i) => (
+        <div key={i} style={{ marginBottom: i < natacao.length - 1 ? 12 : 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-primary)" }}>{n.label}</span>
+            <span style={{ fontSize: 11, fontWeight: 500, color: cor, background: `${cor}18`, borderRadius: 4, padding: "1px 6px" }}>{n.series}</span>
+          </div>
+          <div style={{ fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
+            <span style={{ color: "var(--color-text-tertiary)" }}>Pausa:</span> {n.pausa} · {n.instrucao}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -837,7 +949,8 @@ function TreinoBlock({ treino, accentColor }) {
               </div>
             </div>
           )}
-          <CoreBlock core={treino.core} accentColor={accentColor} checked={checked} onCheck={toggleCheck} />
+          {treino.natacao && <NatacaoBlock natacao={treino.natacao} accentColor="#378ADD" />}
+          {treino.core && <CoreBlock core={treino.core} accentColor={accentColor} checked={checked} onCheck={toggleCheck} />}
         </div>
       )}
     </div>
@@ -857,10 +970,15 @@ function SemanaGrid({ semana }) {
           <div style={{ textAlign: "right" }}>
             {d.tipo === "descanso" ? (
               <span style={{ fontSize: 12, color: "var(--color-text-tertiary)" }}>Descanso{d.dia === "Quarta" ? " ativo" : ""}</span>
+            ) : d.tipo === "circuito" ? (
+              <div>
+                <span style={{ fontSize: 11, fontWeight: 500, color: d.cor, background: `${d.cor}18`, borderRadius: 4, padding: "2px 6px", marginRight: 6 }}>Circuito Upper</span>
+                {d.cardio && <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>+ {d.cardio}</span>}
+              </div>
             ) : (
               <div>
                 <span style={{ fontSize: 11, fontWeight: 500, color: d.cor, background: `${d.cor}18`, borderRadius: 4, padding: "2px 6px", marginRight: 6 }}>Treino {d.tipo}</span>
-                <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>+ {d.cardio}</span>
+                {d.cardio && <span style={{ fontSize: 11, color: "var(--color-text-tertiary)" }}>+ {d.cardio}</span>}
               </div>
             )}
           </div>
@@ -879,7 +997,6 @@ function TreinoTab() {
 
   return (
     <div>
-      {/* Toggle */}
       <div style={{ display: "flex", gap: 4, background: "var(--color-background-secondary)", borderRadius: 10, padding: 4, marginBottom: 20 }}>
         {[{ id: "academia", label: "Com Academia" }, { id: "semacademia", label: "Sem Academia" }].map(opt => (
           <button key={opt.id} onClick={() => setModo(opt.id)} style={{ flex: 1, padding: "7px 0", border: "none", cursor: "pointer", borderRadius: 7, fontSize: 12, fontWeight: 500, background: modo === opt.id ? "var(--color-background-primary)" : "transparent", color: modo === opt.id ? "var(--color-text-primary)" : "var(--color-text-tertiary)", boxShadow: modo === opt.id ? "0 1px 3px rgba(0,0,0,0.3)" : "none", transition: "all 0.2s ease" }}>
@@ -888,21 +1005,23 @@ function TreinoTab() {
         ))}
       </div>
 
-      {/* Aviso modo sem academia */}
       {!isAcademia && (
         <div style={{ background: `${COLORS.carb}12`, borderRadius: 10, padding: "10px 14px", marginBottom: 16, borderLeft: `2px solid ${COLORS.carb}`, fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
-          <span style={{ color: COLORS.carb, fontWeight: 600 }}>Maio 2026 — protocolo adaptado.</span> Exercícios marcados como <span style={{ color: COLORS.carb, fontWeight: 600 }}>ELÁSTICO</span> usam as bandas de resistência. <span style={{ color: COLORS.muted, fontWeight: 600 }}>CORPO</span> usam apenas peso corporal. Em junho, retome o protocolo Com Academia de onde parou.
+          <span style={{ color: COLORS.carb, fontWeight: 600 }}>Maio 2026 — protocolo adaptado.</span> Exercícios marcados como <span style={{ color: COLORS.carb, fontWeight: 600 }}>ELÁSTICO</span> usam bandas de resistência. <span style={{ color: COLORS.muted, fontWeight: 600 }}>CORPO</span> usam apenas peso corporal. Tempo <span style={{ color: COLORS.carb, fontWeight: 600 }}>3-1-2</span> em todos os exercícios. Em junho, retome o protocolo Com Academia de onde parou.
         </div>
       )}
 
       <SemanaGrid semana={treinoData.semana} />
       <TreinoBlock treino={treinoData.treinoA} accentColor="#E2635A" />
+      {!isAcademia && treinoData.circuitoQuarta && (
+        <TreinoBlock treino={treinoData.circuitoQuarta} accentColor="#8B7FD4" />
+      )}
       <TreinoBlock treino={treinoData.treinoB} accentColor="#3BBFA0" />
 
       <div style={{ background: "var(--color-background-secondary)", borderRadius: 10, padding: "10px 14px", marginBottom: 16, borderLeft: `2px solid ${COLORS.muted}`, fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
         {isAcademia
           ? "Cardio pós-treino em zona 2 — intensidade leve, conversa possível durante. Cardio intenso após Treino B compromete síntese proteica."
-          : "Natação e bicicleta contam como cardio de zona 2. Caminhada leve é suficiente nos dias de Treino A. Evite intensidade alta após Treino B."}
+          : "Natação com objetivo de força complementar — não é cardio. Tempo 3-1-2 nos elásticos é o mecanismo de progressão principal em maio. Whey sempre entre os elásticos e a natação."}
       </div>
 
       <GenericCommandsPanel commands={treinoData.comandos} title={`COMANDOS DA SKILL — TREINO${!isAcademia ? " (SEM ACADEMIA)" : ""}`} />
