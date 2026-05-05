@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
-
 const data = {
   baseline: "31/03/2026",
   revisoes: [
@@ -13,8 +11,8 @@ const data = {
     peso: "55,66 kg", gordura: "29,5%", metaGordura: "22–26%",
     musculo: "37,5%", vfat: "4,0", agua: "50,7%", bmi: "22,6", tmb: "1.185 kcal",
   },
-  treino: { calorias: 1725, proteina: 120, carbo: 190, gordura: 54, prot_pct: 28, carbo_pct: 44, fat_pct: 28 },
-  descanso: { calorias: 1325, proteina: 120, carbo: 100, gordura: 50, prot_pct: 36, carbo_pct: 30, fat_pct: 34 },
+  treino:  { calorias: 1725, proteina: 120, carbo: 190, gordura: 54, prot_pct: 28, carbo_pct: 44, fat_pct: 28 },
+  descanso:{ calorias: 1325, proteina: 120, carbo: 100, gordura: 50, prot_pct: 36, carbo_pct: 30, fat_pct: 34 },
   limites: { acucar: 40, fibra: 25, mediaAcademia: 1553, mediaSemAcademia: 1611 },
 };
 
@@ -23,14 +21,12 @@ const COLORS = {
   accent: "#3BBFA0", danger: "#E2635A", muted: "#9B9B9B",
 };
 
-// ─── TUBOS ────────────────────────────────────────────────────────────────────
-
 const TUBOS = [
-  { cor: "Amarelo", kg: "4,6kg", hex: "#E8C84A" },
-  { cor: "Azul",    kg: "9,1kg", hex: "#378ADD" },
-  { cor: "Verde",   kg: "13,7kg", hex: "#3BBFA0" },
-  { cor: "Preto",   kg: "18,2kg", hex: "#AAAAAA" },
-  { cor: "Vermelho",kg: "22,8kg", hex: "#E2635A" },
+  { cor: "Amarelo",  kg: "4,6kg",  hex: "#E8C84A" },
+  { cor: "Azul",     kg: "9,1kg",  hex: "#378ADD" },
+  { cor: "Verde",    kg: "13,7kg", hex: "#3BBFA0" },
+  { cor: "Preto",    kg: "18,2kg", hex: "#AAAAAA" },
+  { cor: "Vermelho", kg: "22,8kg", hex: "#E2635A" },
 ];
 
 // ─── TREINO COM ACADEMIA ──────────────────────────────────────────────────────
@@ -49,70 +45,70 @@ const TREINO_DATA = {
     exercicios: [
       { nome: "Supino com Halteres", volume: "4×10", obs: "Peito · Tríceps · Deltóide anterior",
         musculo: "Peitoral maior (primário) · Tríceps · Deltóide anterior",
-        passos: ["Deite no banco com os pés apoiados no chão. Halteres na altura do peito, cotovelos a ~45°.", "Empurre para cima até quase estender — não trave o cotovelo.", "Expire na subida. Desça controlado sentindo o alongamento no peito.", "Mantenha as escápulas retraídas durante todo o movimento."],
-        dica: "Se os halteres oscilarem para os lados, reduza o peso. Estabilidade antes de carga." },
+        passos: ["Deite no banco com os pés apoiados. Halteres na altura do peito, cotovelos a ~45°.", "Empurre até quase estender — não trave o cotovelo.", "Expire na subida. Desça controlado sentindo o alongamento.", "Escápulas retraídas durante todo o movimento."],
+        dica: "Se os halteres oscilarem para os lados, reduza o peso." },
       { nome: "Rosca Direta", volume: "4×12", obs: "Bíceps · Braquial",
         musculo: "Bíceps braquial (primário) · Braquial · Braquiorradial",
-        passos: ["Em pé, pegada supinada, braços estendidos.", "Cotovelos fixos ao lado do corpo — não movem para frente.", "Suba até a altura dos ombros. Expire na subida.", "Desça lentamente (2–3s) sem deixar o peso cair."],
-        dica: "Cotovelo parado é o erro mais comum. Se avança, o ombro assumiu o movimento." },
+        passos: ["Pegada supinada, braços estendidos.", "Cotovelos fixos ao lado — não movem para frente.", "Suba até a altura dos ombros. Expire na subida.", "Desça lentamente (2–3s)."],
+        dica: "Cotovelo parado. Se avança, o ombro assumiu." },
       { nome: "Tríceps Pulley (Corda)", volume: "4×15", obs: "Porção longa — foco flacidez",
         musculo: "Tríceps braquial — porção longa (primário) · Porção lateral",
-        passos: ["De frente para o cabo alto. Cotovelos fixos ao lado, dobrados a ~90°.", "Empurre para baixo abrindo as pontas para os lados no final.", "Suba controlado sem abrir os cotovelos."],
-        dica: "A abertura das pontas no final ativa a porção longa — exatamente a região que causa flacidez." },
+        passos: ["Cabo alto. Cotovelos fixos ao lado, dobrados a ~90°.", "Empurre abrindo as pontas para os lados no final.", "Suba controlado."],
+        dica: "A abertura das pontas ativa a porção longa — região que causa flacidez." },
       { nome: "Desenvolvimento com Halteres", volume: "3×12", obs: "Deltóide · Trapézio",
-        musculo: "Deltóide medial e anterior (primário) · Trapézio superior · Tríceps",
+        musculo: "Deltóide medial e anterior (primário) · Trapézio superior",
         passos: ["Halteres na altura dos ombros, cotovelos a ~90°.", "Empurre para cima até quase estender. Não eleve os ombros.", "Desça controlado."],
-        dica: "Prefira sentar com encosto para evitar compensação com a lombar." },
+        dica: "Prefira sentar com encosto para evitar compensação lombar." },
       { nome: "Puxador Frontal", volume: "3×12", obs: "Dorsal · Equilíbrio push/pull",
         musculo: "Latíssimo do dorso (primário) · Romboides · Bíceps",
-        passos: ["Pegada larga, incline o tronco ~15° para trás.", "Puxe a barra em direção ao peito trazendo cotovelos para baixo e para dentro.", "Suba controlado sem deixar os ombros subirem."],
+        passos: ["Pegada larga, incline ~15° para trás.", "Puxe trazendo cotovelos para baixo e para dentro.", "Suba controlado."],
         dica: "Inclinação excessiva tira o trabalho do dorsal." },
       { nome: "Elevação Lateral", volume: "3×15", obs: "Deltóide medial · Definição de ombro",
         musculo: "Deltóide medial (primário) · Supraspinhal",
-        passos: ["Halteres ao lado do corpo com leve flexão no cotovelo.", "Eleve lateralmente até a altura dos ombros — não acima.", "Mindinho levemente mais alto que o polegar no topo."],
-        dica: "Use peso leve. Com carga errada, o trapézio assume o movimento." },
+        passos: ["Halteres ao lado com leve flexão no cotovelo.", "Eleve lateralmente até a altura dos ombros.", "Mindinho levemente mais alto que o polegar no topo."],
+        dica: "Peso leve. Com carga errada, o trapézio assume." },
     ],
     core: { label: "Core A — Abdômen + Oblíquos", exercicios: [
-      { nome: "Elevação de Pernas na Barra", volume: "3×12", obs: "Reto abdominal inferior", passos: ["Suspensa na barra, braços estendidos.", "Eleve as pernas juntas até 90°.", "Desça lentamente sem balançar."], dica: "Se balançar, reduza a amplitude." },
-      { nome: "Crunch com Rotação", volume: "3×12", obs: "Oblíquos · Cintura", passos: ["Deitada, joelhos dobrados, mãos atrás da cabeça.", "Suba e leve o cotovelo ao joelho oposto. Alterne.", "Movimento vem da rotação do tronco."], dica: "Não puxe o pescoço com as mãos." },
-      { nome: "Prancha Lateral + Elevação de Quadril", volume: "3×30s", obs: "Cada lado · Oblíquo profundo", passos: ["Apoio no antebraço e no pé, corpo em linha reta lateral.", "Quadril cai levemente e sobe contraindo o oblíquo."], dica: "A elevação transforma a prancha estática em dinâmica." },
+      { nome: "Elevação de Pernas na Barra", volume: "3×12", obs: "Reto abdominal inferior", passos: ["Suspensa na barra.", "Eleve as pernas até 90°.", "Desça lentamente."], dica: "Se balançar, reduza a amplitude." },
+      { nome: "Crunch com Rotação", volume: "3×12", obs: "Oblíquos · Cintura", passos: ["Joelhos dobrados, mãos atrás da cabeça.", "Cotovelo ao joelho oposto. Alterne."], dica: "Não puxe o pescoço." },
+      { nome: "Prancha Lateral + Elevação de Quadril", volume: "3×30s", obs: "Cada lado · Oblíquo profundo", passos: ["Antebraço e pé, corpo em linha reta lateral.", "Quadril cai e sobe contraindo o oblíquo."], dica: "A elevação transforma a prancha estática em dinâmica." },
     ]},
   },
   treinoB: {
     label: "Treino B — Inferior · Coxa & Quadril", tag: "Anti-flacidez", dias: "Seg / Qui",
-    foco: "Coxa interna (adutores) + lateral do quadril (glúteo médio). São os dois grupos que mais sustentam a pele e combatem a flacidez na região da coxa.",
+    foco: "Coxa interna (adutores) + lateral do quadril (glúteo médio). São os dois grupos que mais sustentam a pele e combatem a flacidez na coxa.",
     exercicios: [
       { nome: "Agachamento Sumo com Halter", volume: "4×12", obs: "Adutores · Glúteo · Quadríceps",
         musculo: "Adutores (primário) · Glúteo máximo · Quadríceps",
-        passos: ["Pés bem afastados, dedos a ~45°. Halter à frente do corpo.", "Desça com tronco ereto e joelhos alinhados com as pontas dos pés.", "Suba contraindo glúteo e adutores no topo."],
+        passos: ["Pés bem afastados, dedos a ~45°. Halter à frente.", "Desça com tronco ereto, joelhos alinhados com as pontas.", "Suba contraindo glúteo e adutores."],
         dica: "Quanto mais afastados os pés, mais recrutamento de adutores." },
       { nome: "Hip Thrust com Barra", volume: "4×15", obs: "Glúteo máximo — ativação máxima",
         musculo: "Glúteo máximo (primário) · Isquiotibiais",
-        passos: ["Ombro apoiado no banco. Barra sobre os quadris (use almofada).", "Empurre o quadril para cima formando linha do ombro ao joelho.", "Contraia o glúteo 1s no topo."],
-        dica: "Não hiperextenda a lombar. O movimento vem do glúteo, não das costas." },
-      { nome: "Cadeira Adutora", volume: "4×15", obs: "Coxa interna — foco principal flacidez",
+        passos: ["Ombro no banco. Barra sobre os quadris (almofada).", "Quadril sobe formando linha ombro–joelho.", "Contraia o glúteo 1s no topo."],
+        dica: "Não hiperextenda a lombar." },
+      { nome: "Cadeira Adutora", volume: "4×15", obs: "Coxa interna — foco principal",
         musculo: "Adutores — grácil, pectíneo, adutor longo/curto/magno",
-        passos: ["Semanas 1–2: amplitude parcial.", "Feche as pernas controlado.", "Abra devagar — excêntrica é onde o músculo mais trabalha."],
-        dica: "Semana 5+: pausa de 2s com pernas fechadas." },
+        passos: ["Sem 1–2: amplitude parcial.", "Feche as pernas controlado.", "Abra devagar — excêntrica é onde o músculo mais trabalha."],
+        dica: "Sem 5+: pausa de 2s com pernas fechadas." },
       { nome: "Cadeira Abdutora", volume: "4×20", obs: "Glúteo médio · Lateral do quadril",
         musculo: "Glúteo médio (primário) · Glúteo mínimo",
-        passos: ["Almofadas do lado externo das coxas.", "Abra contra a resistência.", "Feche controlado sem deixar o peso cair."],
+        passos: ["Almofadas do lado externo.", "Abra contra a resistência.", "Feche controlado."],
         dica: "Inclinar levemente o tronco para frente aumenta recrutamento do glúteo médio." },
       { nome: "Leg Press — Pés Juntos", volume: "3×12", obs: "Quadríceps · Adutores",
         musculo: "Quadríceps (primário) · Adutores",
-        passos: ["Pés próximos no centro da plataforma.", "Desça até ~90° de joelho.", "Empurre sem travar no topo."],
-        dica: "Não tire a lombar do encosto ao descer." },
+        passos: ["Pés próximos no centro.", "Desça até ~90° de joelho.", "Empurre sem travar."],
+        dica: "Não tire a lombar do encosto." },
       { nome: "Mesa Flexora", volume: "3×15", obs: "Isquiotibiais · Posterior da coxa",
         musculo: "Isquiotibiais — bíceps femoral, semitendíneo, semimembranoso",
-        passos: ["Joelhos alinhados com o eixo da máquina.", "Flexione puxando o rolo em direção ao glúteo.", "Desça lentamente."],
-        dica: "Não levante o quadril da mesa ao subir." },
+        passos: ["Joelhos alinhados com o eixo.", "Flexione puxando em direção ao glúteo.", "Desça lentamente."],
+        dica: "Não levante o quadril ao subir." },
       { nome: "Abdução no Cabo", volume: "3×15", obs: "Glúteo médio · Isolamento lateral",
         musculo: "Glúteo médio (primário) · Glúteo mínimo",
-        passos: ["Cabo no tornozelo. Eleve a perna lateralmente até ~30–40°.", "Tronco ereto — não incline para compensar.", "Desça controlado sem pousar o pé."],
-        dica: "Amplitude menor com controle vale mais que amplitude grande com oscilação." },
+        passos: ["Cabo no tornozelo. Eleve lateralmente até ~30–40°.", "Tronco ereto.", "Desça controlado."],
+        dica: "Amplitude menor com controle vale mais que grande com oscilação." },
       { nome: "Stiff com Halteres", volume: "3×12", obs: "Isquiotibiais · Glúteo · Lombar",
         musculo: "Isquiotibiais (primário) · Glúteo máximo · Eretores",
-        passos: ["Halteres à frente das coxas. Incline o tronco empurrando o quadril para trás.", "Desça até sentir alongamento nos isquiotibiais.", "Suba contraindo glúteo no topo."],
+        passos: ["Halteres à frente. Incline empurrando o quadril para trás.", "Desça até sentir o alongamento.", "Suba contraindo glúteo."],
         dica: "Coluna neutra. Costas arredondadas = risco de lombar." },
     ],
     progressao: [
@@ -121,18 +117,18 @@ const TREINO_DATA = {
       { sem: "Sem 5+",  desc: "Pausa de 2s com pernas fechadas em cada rep." },
     ],
     core: { label: "Core B — Lombar + Costas", exercicios: [
-      { nome: "Banco Romano — Extensão Lombar", volume: "3×15", obs: "Lombar · Glúteo · Cadeia posterior", passos: ["Coxas no apoio, tronco dobrado.", "Suba até alinhado com as pernas — não hiperextenda.", "Desça controlado."], dica: "Braços cruzados no peito para iniciante." },
-      { nome: "Superman com Pulso", volume: "3×12", obs: "+2s pausa · Lombar · Trapézio inferior", passos: ["De bruços, braços estendidos à frente.", "Eleve braços e pernas. Segure 2s.", "Desça sem pousar completamente."], dica: "Puxar os braços levemente para baixo no topo ativa o trapézio inferior." },
+      { nome: "Banco Romano — Extensão Lombar", volume: "3×15", obs: "Lombar · Glúteo", passos: ["Coxas no apoio, tronco dobrado.", "Suba até alinhado — não hiperextenda.", "Desça controlado."], dica: "Braços cruzados no peito para iniciante." },
+      { nome: "Superman com Pulso", volume: "3×12", obs: "+2s pausa · Lombar · Trapézio inferior", passos: ["De bruços, braços estendidos.", "Eleve braços e pernas. Segure 2s.", "Desça sem pousar completamente."], dica: "Puxar os braços levemente para baixo no topo ativa o trapézio inferior." },
       { nome: "Prancha com Alcance Alternado", volume: "3×10", obs: "Cada lado · Core profundo", passos: ["Prancha alta. Core e glúteo contraídos.", "Estenda um braço à frente sem rotacionar o quadril."], dica: "Quanto menos o quadril oscilar, mais o core profundo trabalha." },
     ]},
   },
   comandos: [
-    { cmd: "/check-treino", desc: "Analisar aderência da semana", color: COLORS.carb, example: "/check-treino — fiz seg, ter, qui. Na sexta não consegui ir.", tip: "Use toda segunda com o resumo da semana anterior." },
-    { cmd: "/check-carga", desc: "Verificar progressão de carga vs semanas anteriores", color: COLORS.protein, example: "/check-carga — supino estava em 8kg, subi para 10kg.", tip: "Anote os pesos usados em cada sessão." },
-    { cmd: "/ajuste-treino", desc: "Avaliar necessidade de alteração no protocolo", color: COLORS.fat, example: "/ajuste-treino — Treino B está levando 90min.", tip: "Use quando sentir estagnação por 3+ semanas." },
-    { cmd: "/dor [músculo]", desc: "Orientar sobre dor ou desconforto", color: COLORS.danger, example: "/dor ombro direito — dói ao fazer desenvolvimento.", tip: "Diferencie tensão muscular (normal) de dor articular (sinal de parar)." },
+    { cmd: "/check-treino", desc: "Analisar aderência da semana", color: COLORS.carb, example: "/check-treino — fiz seg, ter, qui. Sexta não consegui.", tip: "Use toda segunda com o resumo da semana anterior." },
+    { cmd: "/check-carga", desc: "Verificar progressão de carga vs semanas anteriores", color: COLORS.protein, example: "/check-carga — supino foi de 8kg para 10kg.", tip: "Anote os pesos em cada sessão." },
+    { cmd: "/ajuste-treino", desc: "Avaliar necessidade de alteração", color: COLORS.fat, example: "/ajuste-treino — Treino B está levando 90min.", tip: "Use quando sentir estagnação por 3+ semanas." },
+    { cmd: "/dor [músculo]", desc: "Orientar sobre dor ou desconforto", color: COLORS.danger, example: "/dor ombro direito — dói ao fazer desenvolvimento.", tip: "Diferencie tensão muscular (normal) de dor articular (parar)." },
     { cmd: "/revisao-treino-30", desc: "Análise completa de 30 dias", color: COLORS.fat, example: "/revisao-treino-30 [descreva as 4 semanas]", tip: "Primeira revisão: 30/04/2026." },
-    { cmd: "/semana [descrição]", desc: "Registrar semana de treino para histórico", color: COLORS.muted, example: "/semana semana 2 concluída. Adutora ainda leve.", tip: "Use para semanas atípicas antes da revisão." },
+    { cmd: "/semana [descrição]", desc: "Registrar semana para histórico", color: COLORS.muted, example: "/semana sem 2 concluída. Adutora ainda leve.", tip: "Use para semanas atípicas antes da revisão." },
   ],
 };
 
@@ -140,13 +136,13 @@ const TREINO_DATA = {
 
 const TREINO_SEM_ACADEMIA = {
   semana: [
-    { dia: "Segunda",    tipo: "A",        cardio: null,                   cor: "#E2635A" },
-    { dia: "Terça",      tipo: "B",        cardio: "Bike zona 2 · 20min",  cor: "#3BBFA0" },
-    { dia: "Quarta",     tipo: "descanso", cardio: null,                   cor: null },
-    { dia: "Quinta",     tipo: "A",        cardio: "Bike zona 2 · 20min",  cor: "#E2635A" },
-    { dia: "Sexta",      tipo: "B",        cardio: null,                   cor: "#3BBFA0" },
-    { dia: "Sáb ou Dom", tipo: "natacao",  cardio: "Natação Peito",        cor: "#378ADD" },
-    { dia: "O outro dia",tipo: "descanso", cardio: null,                   cor: null },
+    { dia: "Segunda",    tipo: "A",        cardio: "Cardio pós · 15–20min", cor: "#E2635A" },
+    { dia: "Terça",      tipo: "B",        cardio: null,                    cor: "#3BBFA0" },
+    { dia: "Quarta",     tipo: "descanso", cardio: null,                    cor: null },
+    { dia: "Quinta",     tipo: "A",        cardio: "Cardio pós · 15–20min", cor: "#E2635A" },
+    { dia: "Sexta",      tipo: "B",        cardio: null,                    cor: "#3BBFA0" },
+    { dia: "Sáb ou Dom", tipo: "natacao",  cardio: "Natação Peito",         cor: "#378ADD" },
+    { dia: "O outro dia",tipo: "descanso", cardio: null,                    cor: null },
   ],
   natacaoProgressao: [
     { sem: "Sem 1–2", vol: "4×30 ciclos" },
@@ -154,95 +150,95 @@ const TREINO_SEM_ACADEMIA = {
     { sem: "Sem 5–6", vol: "6×40 ciclos" },
     { sem: "Sem 7–8", vol: "8×50 ciclos" },
   ],
-  progressaoRegra: "2 sessões consecutivas no topo do intervalo com boa técnica → avança para o próximo tubo. Se o próximo tubo não completar o mínimo de reps → mantém o atual e adiciona 1 série.",
+  progressaoRegra: "2 sessões consecutivas no topo do intervalo com boa técnica → avança para o próximo tubo. Se não completar o mínimo com o próximo → mantém o atual e adiciona 1 série.",
   treinoA: {
     label: "Treino A — Superior · Elásticos", tag: "Braços", dias: "Seg / Qui",
-    foco: "Tempo 3-1-2 em todos os exercícios. Âncora de porta para exercícios indicados. Nos dias com bike: força primeiro, bike depois.",
+    foco: "Tempo 3-1-2 em todos os exercícios. Âncora de porta para exercícios indicados. Cardio pós-treino: corda ou crawl · 15–20min · zona 2.",
     exercicios: [
       { nome: "Extensão Overhead", volume: "3×15", obs: "Tríceps porção longa — foco flacidez",
         ancora: "Porta baixa", tuboAtual: "Amarelo · 4,6kg", tuboNext: "Azul · 9,1kg",
         musculo: "Tríceps braquial — porção longa (primário)",
-        passos: ["Âncora baixa. De costas, segure as alças atrás da cabeça com cotovelos apontados para cima.", "Estenda os braços para cima até quase travar. Tempo 3-1-2.", "Não encurte a amplitude — o alongamento máximo no fundo é o que diferencia este exercício."],
-        dica: "Único exercício que alonga completamente a porção longa antes de contrair. Essencial contra flacidez do braço." },
+        passos: ["Âncora baixa. De costas, alças atrás da cabeça com cotovelos para cima.", "Estenda os braços até quase travar. Tempo 3-1-2.", "Não encurte a amplitude — o alongamento máximo é o que diferencia este exercício."],
+        dica: "Único exercício que alonga completamente a porção longa. Essencial contra flacidez do braço." },
       { nome: "Tríceps Pushdown", volume: "4×15", obs: "Tríceps porção lateral",
         ancora: "Porta alta", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Tríceps braquial — porção lateral (primário)",
-        passos: ["Âncora alta. Cotovelos fixos ao lado do corpo, dobrados a ~90°.", "Empurre para baixo até extensão completa. Tempo 3-1-2.", "No ponto mais baixo, abra levemente as mãos para os lados."],
-        dica: "Cotovelos fixos. Se abrirem, o ombro assumiu o movimento." },
+        passos: ["Âncora alta. Cotovelos fixos ao lado, dobrados a ~90°.", "Empurre até extensão completa. Tempo 3-1-2.", "No ponto mais baixo, abra levemente as mãos para os lados."],
+        dica: "Cotovelos fixos. Se abrirem, o ombro assumiu." },
       { nome: "Face Pull", volume: "3×15", obs: "Deltóide posterior · Manguito rotador",
         ancora: "Porta alta", tuboAtual: "Azul · 9,1kg", tuboNext: "Verde · 13,7kg",
         musculo: "Deltóide posterior (primário) · Manguito rotador",
-        passos: ["Âncora na altura do rosto. Puxe em direção ao rosto, cotovelos para fora e acima dos ombros.", "No ponto final, abra as mãos para os lados como se emoldurasse o rosto. Pausa 1s."],
-        dica: "Preventivo — protege o ombro do volume acumulado no protocolo de braços." },
+        passos: ["Âncora na altura do rosto. Puxe em direção ao rosto, cotovelos para fora e acima.", "No ponto final, abra as mãos para os lados. Pausa 1s."],
+        dica: "Preventivo — protege o ombro do volume acumulado." },
       { nome: "Rosca Direta", volume: "4×12", obs: "Bíceps · Braquial",
         ancora: "Pisar no meio", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Bíceps braquial (primário) · Braquial",
-        passos: ["Pise no centro da banda. Pegada supinada (palmas para cima).", "Cotovelos fixos ao lado do corpo. Tempo 3-1-2.", "Desça totalmente — o alongamento completo é onde o músculo cresce."],
+        passos: ["Pise no centro. Pegada supinada.", "Cotovelos fixos ao lado. Tempo 3-1-2.", "Desça totalmente — o alongamento completo é onde o músculo cresce."],
         dica: "Cotovelo parado. Se avança, o ombro assumiu." },
       { nome: "Remada", volume: "3×15", obs: "Dorsal · Romboides",
         ancora: "Porta média", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Latíssimo do dorso (primário) · Romboides · Bíceps",
-        passos: ["Âncora média. Sente-se no chão de frente, braços estendidos.", "Puxe as alças em direção ao abdômen com cotovelos para o lado do corpo. Tempo 3-1-2."],
-        dica: "Escápulas devem se retrair e descer no ponto final — não só os braços dobram." },
+        passos: ["Âncora média. Sente-se no chão de frente, braços estendidos.", "Puxe com cotovelos para o lado do corpo. Tempo 3-1-2."],
+        dica: "Escápulas se retraem e descem no ponto final." },
       { nome: "Desenvolvimento", volume: "3×12", obs: "Deltóide · Trapézio",
         ancora: "Pisar no meio", tuboAtual: "Azul · 9,1kg", tuboNext: "Verde · 13,7kg",
         musculo: "Deltóide medial e anterior (primário) · Trapézio superior",
         passos: ["Pise no centro. Alças na altura dos ombros, cotovelos a ~90°.", "Empurre para cima sem elevar os ombros. Tempo 3-1-2."],
-        dica: "Pé centralizado na banda garante tensão simétrica." },
+        dica: "Pé centralizado garante tensão simétrica." },
       { nome: "Elevação Lateral", volume: "3×15", obs: "Deltóide medial · Definição de ombro",
         ancora: "Pisar no meio", tuboAtual: "Amarelo · 4,6kg", tuboNext: "Azul · 9,1kg",
         musculo: "Deltóide medial (primário)",
-        passos: ["Pise no centro. Eleve lateralmente até a altura dos ombros — não acima.", "Mindinho levemente mais alto que o polegar no topo. Tempo 3-1-2."],
+        passos: ["Pise no centro. Eleve lateralmente até a altura dos ombros.", "Mindinho levemente mais alto. Tempo 3-1-2."],
         dica: "Use a banda mais leve. Com carga excessiva, o trapézio assume." },
     ],
     core: { label: "Core A — Abdômen + Oblíquos", exercicios: [
-      { nome: "Elevação de Pernas (no chão)", volume: "3×12", obs: "Reto abdominal inferior", passos: ["Deitada de costas, mãos sob os glúteos.", "Eleve as pernas até 90° sem encostar no chão entre as reps."], dica: "Se compensar na lombar, reduza a amplitude." },
+      { nome: "Elevação de Pernas (no chão)", volume: "3×12", obs: "Reto abdominal inferior", passos: ["Deitada, mãos sob os glúteos.", "Eleve as pernas até 90° sem encostar entre as reps."], dica: "Se compensar na lombar, reduza a amplitude." },
       { nome: "Crunch com Rotação", volume: "3×12", obs: "Oblíquos · Cintura", passos: ["Joelhos dobrados, mãos atrás da cabeça.", "Cotovelo ao joelho oposto. Alterne."], dica: "Não puxe o pescoço." },
       { nome: "Prancha Lateral + Elevação de Quadril", volume: "3×30s", obs: "Cada lado", passos: ["Antebraço e pé. Quadril cai e sobe contraindo o oblíquo."], dica: "A elevação transforma a prancha estática em dinâmica." },
     ]},
   },
   treinoB: {
     label: "Treino B — Inferior · Elásticos + Corpo", tag: "Anti-flacidez", dias: "Ter / Sex",
-    foco: "Tempo 3-1-2. Mochila carregada progride semana a semana — registre o peso. Nos dias com bike: força primeiro, bike depois.",
+    foco: "Tempo 3-1-2. Mochila carregada progride semana a semana — registre o peso. Sem cardio pós-treino neste dia.",
     exercicios: [
       { nome: "Agachamento Sumo", volume: "3×12", obs: "Adutores · Glúteo · Quadríceps",
         ancora: "Pisar no meio", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Adutores (primário) · Glúteo máximo · Quadríceps",
-        passos: ["Pés bem afastados, dedos a ~45°. Pise na banda e segure as alças à frente.", "Desça com tronco ereto. Tempo 3-1-2."],
+        passos: ["Pés bem afastados, dedos a ~45°. Pise na banda.", "Desça com tronco ereto. Tempo 3-1-2."],
         dica: "Quanto mais afastados os pés, mais recrutamento de adutores." },
       { nome: "Agachamento Búlgaro", volume: "3×10 cada perna", obs: "Quadríceps · Glúteo — unilateral",
         ancora: "Pisar no meio", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Quadríceps (primário) · Glúteo máximo",
-        passos: ["Pé traseiro elevado em cadeira. Pise na banda com o pé da frente.", "Desça até coxa paralela ao chão. Tempo 3-1-2."],
-        dica: "Segure levemente em algo para equilíbrio nas primeiras sessões." },
+        passos: ["Pé traseiro elevado em cadeira. Pise na banda com o pé da frente.", "Desça até coxa paralela. Tempo 3-1-2."],
+        dica: "Segure levemente algo para equilíbrio nas primeiras sessões." },
       { nome: "Hip Thrust", volume: "4×15", obs: "Glúteo máximo — ativação máxima",
         ancora: "Pisar no meio", tuboAtual: "Preto · 18,2kg", tuboNext: "Vermelho · 22,8kg",
         musculo: "Glúteo máximo (primário) · Isquiotibiais",
-        passos: ["Ombro apoiado no sofá. Banda sobre os quadris, ancorada sob os pés.", "Quadril sobe formando linha ombro–joelho. Pausa 2s no topo.", "Desça em 3s — excêntrico lento compensa carga menor vs barra."],
-        dica: "Se a banda escorregar, use um pano dobrado como proteção no quadril." },
+        passos: ["Ombro no sofá. Banda sobre os quadris, ancorada sob os pés.", "Quadril sobe formando linha ombro–joelho. Pausa 2s no topo.", "Desça em 3s — excêntrico lento compensa carga menor vs barra."],
+        dica: "Se a banda escorregar, use um pano dobrado no quadril." },
       { nome: "Adução Deitada", volume: "4×15", obs: "Coxa interna — foco principal",
         ancora: "Porta baixa", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Adutores — grácil, pectíneo, adutor longo/curto/magno",
-        passos: ["Tornozeira no tornozelo, banda na porta baixa. Deite de lado, perna de trabalho embaixo.", "Feche a perna de baixo em direção à de cima contra a resistência.", "Pausa de 2s com a perna fechada — obrigatório desde a semana 1."],
-        dica: "A pausa de 2s compensa a carga menor vs cadeira adutora. Não pule este detalhe." },
+        passos: ["Tornozeira no tornozelo, banda na porta baixa. Deite de lado.", "Feche a perna de baixo contra a resistência.", "Pausa de 2s com a perna fechada — obrigatório desde a sem 1."],
+        dica: "A pausa de 2s compensa a carga menor vs cadeira adutora." },
       { nome: "Abdução com Banda", volume: "4×20", obs: "Glúteo médio · Lateral do quadril",
         ancora: "Enrolado na perna", tuboAtual: "Verde enrolado 2×", tuboNext: "Preto enrolado 1×",
         musculo: "Glúteo médio (primário) · Glúteo mínimo",
-        passos: ["Enrole a banda duas vezes acima dos joelhos.", "Sentada, abra as pernas contra a resistência. Tempo 3-1-2."],
+        passos: ["Enrole a banda duas vezes acima dos joelhos.", "Sentada, abra contra a resistência. Tempo 3-1-2."],
         dica: "Sentada é o padrão mais próximo da cadeira abdutora." },
       { nome: "Hamstring Curl", volume: "3×15", obs: "Isquiotibiais · Posterior da coxa",
         ancora: "Porta baixa", tuboAtual: "Verde enrolado 2×", tuboNext: "Preto · 18,2kg",
         musculo: "Isquiotibiais — bíceps femoral, semitendíneo, semimembranoso",
-        passos: ["Tornozeira no tornozelo, banda na porta baixa. Em pé de frente, segure para equilíbrio.", "Flexione o joelho puxando o calcanhar em direção ao glúteo. Tempo 3-1-2."],
-        dica: "A descida lenta de 3s é onde o isquiotibial mais trabalha. Não deixe a perna cair." },
+        passos: ["Tornozeira no tornozelo, banda na porta baixa. Em pé de frente.", "Flexione o joelho puxando o calcanhar em direção ao glúteo. Tempo 3-1-2."],
+        dica: "A descida lenta de 3s é onde o isquiotibial mais trabalha." },
       { nome: "Stiff", volume: "3×12", obs: "Isquiotibiais · Glúteo · Lombar",
         ancora: "Pisar no meio", tuboAtual: "Verde · 13,7kg", tuboNext: "Preto · 18,2kg",
         musculo: "Isquiotibiais (primário) · Glúteo máximo · Eretores",
-        passos: ["Pise na banda. Incline o tronco empurrando o quadril para trás, joelhos levemente flexionados.", "Desça até sentir o alongamento nos isquiotibiais. Tempo 3-1-2."],
+        passos: ["Pise na banda. Incline o tronco empurrando o quadril para trás.", "Desça até sentir o alongamento. Tempo 3-1-2."],
         dica: "Coluna neutra. Costas arredondadas = risco de lombar." },
     ],
     core: { label: "Core B — Lombar + Costas", exercicios: [
-      { nome: "Superman com Pulso", volume: "3×15", obs: "Lombar · Cadeia posterior", passos: ["De bruços, braços estendidos. Eleve braços e pernas simultaneamente.", "Segure 2s. Desça controlado sem pousar entre as reps."], dica: "Substitui o Banco Romano. Puxar os braços levemente para baixo no topo ativa o trapézio inferior." },
+      { nome: "Superman com Pulso", volume: "3×15", obs: "Lombar · Cadeia posterior", passos: ["De bruços, braços estendidos. Eleve braços e pernas.", "Segure 2s. Desça sem pousar entre as reps."], dica: "Substitui o Banco Romano. No topo, puxar os braços levemente para baixo ativa o trapézio inferior." },
       { nome: "Superman — Variação Pulso", volume: "3×12", obs: "+2s pausa · Trapézio inferior", passos: ["Mesma posição. No ponto alto, puxe os braços levemente para trás. Segure 2s."], dica: "O 'pulso' é o diferencial que ativa o trapézio inferior." },
       { nome: "Prancha com Alcance Alternado", volume: "3×10", obs: "Cada lado · Core profundo", passos: ["Prancha alta. Estenda um braço sem rotacionar o quadril. Alterne."], dica: "Quanto menos o quadril oscilar, mais o core profundo trabalha." },
     ]},
@@ -250,9 +246,9 @@ const TREINO_SEM_ACADEMIA = {
   comandos: [
     { cmd: "/check-treino", desc: "Analisar aderência + tubos usados na semana", color: COLORS.carb, example: "/check-treino — fiz seg, ter, qui, sex. Rosca subiu para o preto.", tip: "Inclua qual tubo usou em cada exercício. É com esse dado que a progressão é auditada." },
     { cmd: "/check-carga", desc: "Verificar progressão de tubo vs semanas anteriores", color: COLORS.protein, example: "/check-carga — hip thrust no preto, tentei o vermelho, não completei.", tip: "Se não completar o mínimo com o próximo tubo, volta ao atual e adiciona 1 série." },
-    { cmd: "/ajuste-treino", desc: "Adaptar exercício se tiver dificuldade com equipamento", color: COLORS.fat, example: "/ajuste-treino — não tenho tornozeira, como faço a adução?", tip: "Sempre há adaptação possível. Descreva o que não está funcionando." },
-    { cmd: "/dor [músculo]", desc: "Orientar sobre dor ou desconforto", color: COLORS.danger, example: "/dor ombro — dói na remada, não no pushdown.", tip: "DOMS (dor muscular no dia seguinte) é normal. Dor articular ou pontada = parar." },
-    { cmd: "/semana [descrição]", desc: "Registrar semana para histórico de progressão", color: COLORS.muted, example: "/semana sem 3. Rosca subiu para preto. Hamstring curl ainda verde 2x.", tip: "Fundamental para rastrear progressão de tubo semana a semana." },
+    { cmd: "/ajuste-treino", desc: "Adaptar exercício se tiver dificuldade", color: COLORS.fat, example: "/ajuste-treino — não tenho tornozeira, como faço a adução?", tip: "Sempre há adaptação possível." },
+    { cmd: "/dor [músculo]", desc: "Orientar sobre dor ou desconforto", color: COLORS.danger, example: "/dor ombro — dói na remada, não no pushdown.", tip: "DOMS é normal. Dor articular ou pontada = parar." },
+    { cmd: "/semana [descrição]", desc: "Registrar semana para histórico", color: COLORS.muted, example: "/semana sem 3. Rosca no preto. Hamstring curl ainda verde 2x.", tip: "Fundamental para rastrear progressão semana a semana." },
   ],
 };
 
@@ -314,7 +310,7 @@ function NutricaoTab({ mode }) {
   const d = activeDay === "treino" ? data.treino : data.descanso;
   const isSemAcademia = mode === "semacademia";
   const media = isSemAcademia ? data.limites.mediaSemAcademia : data.limites.mediaAcademia;
-  const treinoFreq = isSemAcademia ? "5× treino + 1× natação" : "4× por semana";
+  const treinoFreq  = isSemAcademia ? "5× treino + 1× natação" : "4× por semana";
   const descansoFreq = isSemAcademia ? "1× por semana" : "3× por semana";
 
   function diasRestantes(dataStr) {
@@ -327,14 +323,14 @@ function NutricaoTab({ mode }) {
   return (
     <div>
       <div style={{ display: "flex", gap: 10, marginBottom: 24 }}>
-        <DayCard type="treino" d={data.treino} isActive={activeDay === "treino"} onClick={() => setActiveDay("treino")} freqText={treinoFreq} />
+        <DayCard type="treino"   d={data.treino}   isActive={activeDay === "treino"}   onClick={() => setActiveDay("treino")}   freqText={treinoFreq} />
         <DayCard type="descanso" d={data.descanso} isActive={activeDay === "descanso"} onClick={() => setActiveDay("descanso")} freqText={descansoFreq} />
       </div>
       <div style={{ background: "var(--color-background-primary)", border: "0.5px solid var(--color-border-tertiary)", borderRadius: 12, padding: "18px 20px", marginBottom: 16 }}>
         <div style={{ fontSize: 11, fontWeight: 500, color: "var(--color-text-tertiary)", letterSpacing: "0.06em", marginBottom: 16 }}>MACROS — {activeDay === "treino" ? "DIA DE TREINO" : "DIA DE DESCANSO"}</div>
-        <MacroRow label="Proteína" value={d.proteina} unit="g" pct={d.prot_pct} color={COLORS.protein} current={d.proteina} meta={d.proteina} />
-        <MacroRow label="Carboidrato" value={d.carbo} unit="g" pct={d.carbo_pct} color={COLORS.carb} current={d.carbo} meta={activeDay === "treino" ? 190 : 100} />
-        <MacroRow label="Gordura" value={d.gordura} unit="g" pct={d.fat_pct} color={COLORS.fat} current={d.gordura} meta={activeDay === "treino" ? 54 : 50} />
+        <MacroRow label="Proteína"    value={d.proteina} unit="g" pct={d.prot_pct} color={COLORS.protein} current={d.proteina} meta={d.proteina} />
+        <MacroRow label="Carboidrato" value={d.carbo}    unit="g" pct={d.carbo_pct} color={COLORS.carb}   current={d.carbo}    meta={activeDay === "treino" ? 190 : 100} />
+        <MacroRow label="Gordura"     value={d.gordura}  unit="g" pct={d.fat_pct}  color={COLORS.fat}    current={d.gordura}  meta={activeDay === "treino" ? 54 : 50} />
         <div style={{ borderTop: "0.5px solid var(--color-border-tertiary)", marginTop: 6, paddingTop: 14, display: "flex", gap: 12 }}>
           <div style={{ flex: 1, background: "var(--color-background-secondary)", borderRadius: 8, padding: "10px 12px" }}>
             <div style={{ fontSize: 11, color: "var(--color-text-tertiary)", marginBottom: 3 }}>Açúcar máx/dia</div>
@@ -401,13 +397,13 @@ function NutricaoTab({ mode }) {
 // ─── COMMANDS PANEL ───────────────────────────────────────────────────────────
 
 const COMMANDS_NUTRICAO = [
-  { cmd: "/check-semana", desc: "Analisar nutrição da semana vs metas", color: COLORS.carb, example: "/check-semana [anexe o screenshot do app de nutrição]", tip: "Use toda segunda-feira com o resumo da semana anterior." },
-  { cmd: "/check-corpo", desc: "Analisar balança vs baseline 31/03/2026", color: COLORS.protein, example: "/check-corpo [anexe o screenshot da balança OKOK]", tip: "Pese sempre em jejum, pela manhã, antes do treino." },
-  { cmd: "/dia-treino", desc: "Exemplo de refeições para dia de treino", color: COLORS.carb, example: "/dia-treino — me mostre uma sugestão de cardápio para hoje", tip: "Pode pedir variações: /dia-treino sem glúten, /dia-treino com o que tenho na geladeira." },
-  { cmd: "/dia-descanso", desc: "Exemplo de refeições para dia de descanso", color: "#378ADD", example: "/dia-descanso — preciso de uma sugestão para hoje", tip: "Carboidrato cai para 100g. O comando já considera isso." },
-  { cmd: "/revisao-30", desc: "Análise completa com comparativo de 30 dias", color: COLORS.fat, example: "/revisao-30 [anexe screenshot da balança e do app de nutrição]", tip: "Primeira revisão: 30/04/2026." },
-  { cmd: "/duvida [alimento]", desc: "Nutrição e timing ideal de um alimento", color: COLORS.protein, example: "/duvida abacate — posso comer no dia de descanso?", tip: "Funciona com alimentos, refeições prontas ou suplementos." },
-  { cmd: "/log-semana [descrição]", desc: "Registrar intercorrências para histórico", color: COLORS.muted, example: "/log-semana comi fora 3x, não bati proteína quarta e quinta", tip: "Use para semanas atípicas antes da revisão mensal." },
+  { cmd: "/check-semana",       desc: "Analisar nutrição da semana vs metas",       color: COLORS.carb,    example: "/check-semana [anexe o screenshot do app de nutrição]",      tip: "Use toda segunda-feira com o resumo da semana anterior." },
+  { cmd: "/check-corpo",        desc: "Analisar balança vs baseline 31/03/2026",    color: COLORS.protein, example: "/check-corpo [anexe o screenshot da balança OKOK]",           tip: "Pese sempre em jejum, pela manhã, antes do treino." },
+  { cmd: "/dia-treino",         desc: "Exemplo de refeições para dia de treino",    color: COLORS.carb,    example: "/dia-treino — me mostre uma sugestão de cardápio para hoje", tip: "Pode pedir variações: /dia-treino sem glúten." },
+  { cmd: "/dia-descanso",       desc: "Exemplo de refeições para dia de descanso",  color: "#378ADD",      example: "/dia-descanso — preciso de uma sugestão para hoje",          tip: "Carboidrato cai para 100g." },
+  { cmd: "/revisao-30",         desc: "Análise completa com comparativo de 30 dias",color: COLORS.fat,     example: "/revisao-30 [anexe screenshot da balança e do app]",          tip: "Primeira revisão: 30/04/2026." },
+  { cmd: "/duvida [alimento]",  desc: "Nutrição e timing ideal de um alimento",     color: COLORS.protein, example: "/duvida abacate — posso comer no dia de descanso?",           tip: "Funciona com alimentos, refeições prontas ou suplementos." },
+  { cmd: "/log-semana [desc]",  desc: "Registrar intercorrências para histórico",   color: COLORS.muted,   example: "/log-semana comi fora 3x, não bati proteína quarta e quinta", tip: "Use para semanas atípicas antes da revisão mensal." },
 ];
 
 function GenericCommandsPanel({ commands, title }) {
@@ -447,13 +443,13 @@ function GenericCommandsPanel({ commands, title }) {
 
 function ComposicaoTab() {
   const items = [
-    { label: "Peso atual",         value: data.composicao.peso,    sub: "baseline 31/03/2026",            color: COLORS.accent },
-    { label: "% Gordura",          value: data.composicao.gordura, sub: `meta: ${data.composicao.metaGordura}`, color: COLORS.danger },
-    { label: "Massa muscular",     value: data.composicao.musculo, sub: "Perfect",                        color: COLORS.protein },
-    { label: "V-fat",              value: data.composicao.vfat,    sub: "Healthy",                        color: COLORS.carb },
-    { label: "Água corporal",      value: data.composicao.agua,    sub: "limite inferior",                color: "#378ADD" },
-    { label: "IMC",                value: data.composicao.bmi,     sub: "Healthy",                        color: COLORS.carb },
-    { label: "Metabolismo basal",  value: data.composicao.tmb,     sub: "kcal/dia",                       color: COLORS.fat },
+    { label: "Peso atual",        value: data.composicao.peso,    sub: "baseline 31/03/2026",                 color: COLORS.accent },
+    { label: "% Gordura",         value: data.composicao.gordura, sub: `meta: ${data.composicao.metaGordura}`, color: COLORS.danger },
+    { label: "Massa muscular",    value: data.composicao.musculo, sub: "Perfect",                             color: COLORS.protein },
+    { label: "V-fat",             value: data.composicao.vfat,    sub: "Healthy",                             color: COLORS.carb },
+    { label: "Água corporal",     value: data.composicao.agua,    sub: "limite inferior",                     color: "#378ADD" },
+    { label: "IMC",               value: data.composicao.bmi,     sub: "Healthy",                             color: COLORS.carb },
+    { label: "Metabolismo basal", value: data.composicao.tmb,     sub: "kcal/dia",                            color: COLORS.fat },
   ];
   return (
     <div>
@@ -490,15 +486,9 @@ function TuboInfo({ ancora, tuboAtual, tuboNext }) {
   if (!tuboAtual) return null;
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }}>
-      {ancora && (
-        <span style={{ fontSize: 9, color: "var(--color-text-tertiary)", background: "var(--color-background-tertiary)", borderRadius: 3, padding: "1px 5px" }}>{ancora}</span>
-      )}
-      <span style={{ fontSize: 9, fontWeight: 600, color: COLORS.accent, background: `${COLORS.accent}18`, borderRadius: 3, padding: "1px 5px" }}>
-        Atual: {tuboAtual}
-      </span>
-      {tuboNext && (
-        <span style={{ fontSize: 9, color: "var(--color-text-tertiary)" }}>→ {tuboNext}</span>
-      )}
+      {ancora && <span style={{ fontSize: 9, color: "var(--color-text-tertiary)", background: "var(--color-background-tertiary)", borderRadius: 3, padding: "1px 5px" }}>{ancora}</span>}
+      <span style={{ fontSize: 9, fontWeight: 600, color: COLORS.accent, background: `${COLORS.accent}18`, borderRadius: 3, padding: "1px 5px" }}>Atual: {tuboAtual}</span>
+      {tuboNext && <span style={{ fontSize: 9, color: "var(--color-text-tertiary)" }}>→ {tuboNext}</span>}
     </div>
   );
 }
@@ -564,9 +554,8 @@ function TreinoBlock({ treino, accentColor }) {
   const allExs = [...(treino.exercicios || []), ...(treino.core?.exercicios || [])];
   const [checked, setChecked] = useState(allExs.reduce((acc, ex) => ({ ...acc, [ex.nome]: false }), {}));
   const toggleCheck = (nome) => setChecked(prev => ({ ...prev, [nome]: !prev[nome] }));
-  const done = Object.values(checked).filter(Boolean).length;
+  const done  = Object.values(checked).filter(Boolean).length;
   const total = allExs.length;
-
   return (
     <div style={{ background: "var(--color-background-primary)", border: "0.5px solid var(--color-border-tertiary)", borderRadius: 12, marginBottom: 12, overflow: "hidden" }}>
       <div onClick={() => setOpen(!open)} style={{ padding: "14px 16px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -637,8 +626,6 @@ function SemanaGrid({ semana }) {
   );
 }
 
-// ─── SEM ACADEMIA: TUBO LEGENDA + NATAÇÃO PROGRESSÃO ────────────────────────
-
 function TuboLegenda() {
   return (
     <div style={{ background: "var(--color-background-primary)", border: "0.5px solid var(--color-border-tertiary)", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
@@ -662,12 +649,54 @@ function TuboLegenda() {
   );
 }
 
+function CardioPostTreinoABlock() {
+  const opcoes = [
+    {
+      nome: "Pular Corda",
+      series: "5 séries", reps: "200 pulos",
+      pausa: "30s entre séries", total: "~15 min",
+      progressao: "5 × 250 pulos",
+      obs: "Ritmo ~90 pulos/min. Pernas descansadas pós-treino A — impacto bem absorvido.",
+    },
+    {
+      nome: "Crawl",
+      series: "6 séries", reps: "50 ciclos",
+      pausa: "30s entre séries", total: "~15–18 min",
+      progressao: "6 × 60 ciclos",
+      obs: "Ritmo moderado contínuo. Monitorar ombro — treino A já tem volume em deltóide e tríceps.",
+    },
+  ];
+  return (
+    <div style={{ background: "#378ADD10", border: "0.5px solid #378ADD30", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
+      <div style={{ fontSize: 11, fontWeight: 500, color: "#378ADD", letterSpacing: "0.06em", marginBottom: 4 }}>CARDIO PÓS-TREINO A — SEG / QUI</div>
+      <div style={{ fontSize: 11, color: "var(--color-text-tertiary)", marginBottom: 12 }}>15–20 min · Zona 2 · Escolha uma opção por sessão</div>
+      <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+        {opcoes.map((op, i) => (
+          <div key={i} style={{ flex: 1, background: "var(--color-background-secondary)", borderRadius: 10, padding: "12px" }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--color-text-primary)", marginBottom: 8 }}>{op.nome}</div>
+            <div style={{ display: "flex", gap: 6, marginBottom: 8, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: "#378ADD", background: "#378ADD18", borderRadius: 4, padding: "2px 7px" }}>{op.series}</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: COLORS.protein, background: `${COLORS.protein}18`, borderRadius: 4, padding: "2px 7px" }}>{op.reps}</span>
+            </div>
+            <div style={{ fontSize: 10, color: "var(--color-text-tertiary)", marginBottom: 4 }}>Pausa: {op.pausa} · {op.total}</div>
+            <div style={{ fontSize: 10, color: COLORS.carb, marginBottom: 6 }}>Próximo: {op.progressao}</div>
+            <div style={{ fontSize: 10, color: "var(--color-text-tertiary)", lineHeight: 1.5 }}>{op.obs}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize: 11, color: "var(--color-text-secondary)", background: "var(--color-background-secondary)", borderRadius: 8, padding: "8px 12px", lineHeight: 1.6 }}>
+        <span style={{ color: "#378ADD" }}>Zona 2:</span> consegue falar frases curtas durante. Quando 2 sessões seguidas ficarem fáceis → sobe o número.
+      </div>
+    </div>
+  );
+}
+
 function NatacaoProgressaoBlock() {
   return (
     <div style={{ background: "var(--color-background-primary)", border: "0.5px solid var(--color-border-tertiary)", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
       <div style={{ fontSize: 11, fontWeight: 500, color: "var(--color-text-tertiary)", letterSpacing: "0.06em", marginBottom: 12 }}>NATAÇÃO PEITO — PROGRESSÃO 8 SEMANAS</div>
       <div style={{ fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6, marginBottom: 12 }}>
-        Sáb ou Dom · Foco no chute: fechar as pernas com força sentindo a contração na coxa interna. A água oferece resistência na fase de fechamento — recrutamento real de adutores.
+        Sáb ou Dom · Foco no chute: fechar as pernas com força sentindo a contração na coxa interna.
       </div>
       {TREINO_SEM_ACADEMIA.natacaoProgressao.map((n, i) => (
         <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: i < TREINO_SEM_ACADEMIA.natacaoProgressao.length - 1 ? 8 : 0 }}>
@@ -684,38 +713,32 @@ function NatacaoProgressaoBlock() {
 function TreinoTab({ mode }) {
   const isAcademia = mode === "academia";
   const treinoData = isAcademia ? TREINO_DATA : TREINO_SEM_ACADEMIA;
-
   return (
     <div>
       {!isAcademia && (
         <div style={{ background: `${COLORS.carb}12`, borderRadius: 10, padding: "10px 14px", marginBottom: 16, borderLeft: `2px solid ${COLORS.carb}`, fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
-          <span style={{ color: COLORS.carb, fontWeight: 600 }}>Maio–Jun 2026 · Sem academia.</span> Tubos de resistência + peso corporal. Tempo <span style={{ color: COLORS.carb, fontWeight: 600 }}>3-1-2</span> em todos os exercícios — é o principal mecanismo de progressão.
+          <span style={{ color: COLORS.carb, fontWeight: 600 }}>Maio–Jun 2026 · Sem academia.</span> Tubos de resistência + peso corporal. Tempo <span style={{ color: COLORS.carb, fontWeight: 600 }}>3-1-2</span> — principal mecanismo de progressão.
         </div>
       )}
-
       <SemanaGrid semana={treinoData.semana} />
-
       {!isAcademia && <TuboLegenda />}
-
       <TreinoBlock treino={treinoData.treinoA} accentColor="#E2635A" />
+      {!isAcademia && <CardioPostTreinoABlock />}
       <TreinoBlock treino={treinoData.treinoB} accentColor="#3BBFA0" />
-
       {!isAcademia && <NatacaoProgressaoBlock />}
-
       <div style={{ background: "var(--color-background-secondary)", borderRadius: 10, padding: "10px 14px", marginBottom: 16, borderLeft: `2px solid ${COLORS.muted}`, fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
         {isAcademia
           ? "Cardio pós-treino em zona 2 — intensidade leve, conversa possível. Cardio intenso após Treino B compromete síntese proteica."
-          : "Bike sempre depois da musculação. Natação como sessão independente — nunca no mesmo dia que força. Zona 2: intensidade que permite conversar."}
+          : "Cardio sempre depois da musculação. Natação como sessão independente — nunca no mesmo dia que força. Zona 2: consegue conversar durante."}
       </div>
-
       {!isAcademia && (
         <div style={{ background: "var(--color-background-primary)", border: "0.5px solid var(--color-border-tertiary)", borderRadius: 12, padding: "14px 16px", marginBottom: 16 }}>
           <div style={{ fontSize: 11, fontWeight: 500, color: "var(--color-text-tertiary)", letterSpacing: "0.06em", marginBottom: 12 }}>MARCOS DE PROGRESSÃO — MAIO E JUNHO</div>
           {[
-            { sem: "Sem 1–2", desc: "Adaptação ao tempo 3-1-2. Foco em técnica. Registrar tubo e reps de cada exercício.", cor: "#E2635A" },
-            { sem: "Sem 3–4", desc: "Primeira progressão de tubo nos exercícios onde está fácil completar o topo das reps.", cor: COLORS.protein },
-            { sem: "Sem 5–6", desc: "Revisão de todos os tubos. Natação entra em volume 6×40 ciclos.", cor: COLORS.carb },
-            { sem: "Sem 7–8", desc: "Segunda progressão de tubo. Preparação para retorno à academia em julho.", cor: "#378ADD" },
+            { sem: "Sem 1–2", desc: "Adaptação ao tempo 3-1-2. Foco em técnica. Registrar tubo e reps.", cor: "#E2635A" },
+            { sem: "Sem 3–4", desc: "Primeira progressão de tubo nos exercícios mais fáceis.",           cor: COLORS.protein },
+            { sem: "Sem 5–6", desc: "Revisão geral de tubos. Natação entra em 6×40 ciclos.",             cor: COLORS.carb },
+            { sem: "Sem 7–8", desc: "Segunda progressão de tubo. Preparação para retorno em julho.",     cor: "#378ADD" },
           ].map((m, i) => (
             <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: i < 3 ? 10 : 0 }}>
               <span style={{ fontSize: 10, fontWeight: 600, color: m.cor, background: `${m.cor}18`, borderRadius: 4, padding: "2px 6px", whiteSpace: "nowrap", flexShrink: 0 }}>{m.sem}</span>
@@ -724,7 +747,6 @@ function TreinoTab({ mode }) {
           ))}
         </div>
       )}
-
       <GenericCommandsPanel commands={treinoData.comandos} title={`COMANDOS DA SKILL — TREINO${!isAcademia ? " (SEM ACADEMIA)" : ""}`} />
     </div>
   );
@@ -733,9 +755,9 @@ function TreinoTab({ mode }) {
 // ─── APP ──────────────────────────────────────────────────────────────────────
 
 const TABS = [
-  { id: "nutricao",  label: "Nutrição" },
+  { id: "nutricao",   label: "Nutrição" },
   { id: "composicao", label: "Composição" },
-  { id: "treino",    label: "Treino" },
+  { id: "treino",     label: "Treino" },
 ];
 
 const dark = {
@@ -747,25 +769,21 @@ const dark = {
   "--color-text-primary":         "#EFEFEF",
   "--color-text-secondary":       "#A0A0AF",
   "--color-text-tertiary":        "#55555F",
-  "--font-mono":  "'Courier New', monospace",
-  "--font-sans":  "sans-serif",
+  "--font-mono": "'Courier New', monospace",
+  "--font-sans": "sans-serif",
 };
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("nutricao");
-  const [mode, setMode] = useState("academia");
-
+  const [mode,      setMode]      = useState("academia");
   return (
     <div style={{ ...dark, background: "#18181C", minHeight: "100vh" }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
       <div style={{ maxWidth: 520, margin: "0 auto", padding: "20px 16px", fontFamily: "'DM Sans', var(--font-sans), sans-serif" }}>
-
         <div style={{ marginBottom: 20 }}>
           <div style={{ fontSize: 11, color: "var(--color-text-tertiary)", letterSpacing: "0.08em", marginBottom: 4 }}>PLANO ATIVO DESDE {data.baseline}</div>
           <div style={{ fontSize: 22, fontWeight: 600, color: "var(--color-text-primary)" }}>Dashboard da Pam</div>
         </div>
-
-        {/* Mode toggle — app level */}
         <div style={{ display: "flex", gap: 4, background: "var(--color-background-secondary)", borderRadius: 10, padding: 4, marginBottom: 16 }}>
           {[{ id: "academia", label: "🏋️ Com Academia" }, { id: "semacademia", label: "🏠 Sem Academia" }].map(opt => (
             <button key={opt.id} onClick={() => setMode(opt.id)} style={{ flex: 1, padding: "8px 0", border: "none", cursor: "pointer", borderRadius: 8, fontSize: 12, fontWeight: 500, background: mode === opt.id ? (opt.id === "semacademia" ? `${COLORS.carb}22` : "var(--color-background-primary)") : "transparent", color: mode === opt.id ? (opt.id === "semacademia" ? COLORS.carb : "var(--color-text-primary)") : "var(--color-text-tertiary)", boxShadow: mode === opt.id ? "0 1px 3px rgba(0,0,0,0.3)" : "none", transition: "all 0.2s ease" }}>
@@ -773,8 +791,6 @@ export default function App() {
             </button>
           ))}
         </div>
-
-        {/* Tab navigation */}
         <div style={{ display: "flex", gap: 4, background: "var(--color-background-secondary)", borderRadius: 10, padding: 4, marginBottom: 24 }}>
           {TABS.map(tab => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{ flex: 1, padding: "8px 0", border: "none", cursor: "pointer", borderRadius: 8, fontSize: 13, fontWeight: 500, background: activeTab === tab.id ? "var(--color-background-primary)" : "transparent", color: activeTab === tab.id ? "var(--color-text-primary)" : "var(--color-text-tertiary)", boxShadow: activeTab === tab.id ? "0 1px 3px rgba(0,0,0,0.4)" : "none", transition: "all 0.2s ease" }}>
@@ -782,7 +798,6 @@ export default function App() {
             </button>
           ))}
         </div>
-
         {activeTab === "nutricao"   && <NutricaoTab mode={mode} />}
         {activeTab === "composicao" && <ComposicaoTab />}
         {activeTab === "treino"     && <TreinoTab mode={mode} />}
