@@ -90,23 +90,23 @@ const TREINO_DATA = {
 
 const TREINO_SEM_ACADEMIA = {
   semana: [
-    { dia: "Segunda",    tipo: "A",        cardio: "Cardio pós · 15–20min", cor: "#E2635A" },
-    { dia: "Terça",      tipo: "B",        cardio: null,                    cor: "#3BBFA0" },
+    { dia: "Segunda",    tipo: "B",        cardio: null,                    cor: "#3BBFA0" },
+    { dia: "Terça",      tipo: "A",        cardio: "Cardio pós · 15–20min", cor: "#E2635A" },
     { dia: "Quarta",     tipo: "descanso", cardio: null,                    cor: null },
-    { dia: "Quinta",     tipo: "A",        cardio: "Cardio pós · 15–20min", cor: "#E2635A" },
-    { dia: "Sexta",      tipo: "B",        cardio: null,                    cor: "#3BBFA0" },
+    { dia: "Quinta",     tipo: "B",        cardio: null,                    cor: "#3BBFA0" },
+    { dia: "Sexta",      tipo: "A",        cardio: "Cardio pós · 15–20min", cor: "#E2635A" },
     { dia: "Sáb ou Dom", tipo: "natacao",  cardio: "Natação Peito",         cor: "#378ADD" },
     { dia: "O outro dia",tipo: "descanso", cardio: null,                    cor: null },
   ],
   natacaoProgressao: [
-    { sem: "Sem 1–2", vol: "4×30 ciclos" },
-    { sem: "Sem 3–4", vol: "5×30 ciclos" },
-    { sem: "Sem 5–6", vol: "6×40 ciclos" },
-    { sem: "Sem 7–8", vol: "8×50 ciclos" },
+    { sem: "Sem 1–2", vol: "10×30 ciclos · descanso 45–60s" },
+    { sem: "Sem 3–4", vol: "10×35 ciclos · descanso 45–60s" },
+    { sem: "Sem 5–6", vol: "8×40 ciclos · descanso 60s" },
+    { sem: "Sem 7–8", vol: "8×50 ciclos · descanso 60s" },
   ],
   progressaoRegra: "2 sessões consecutivas no topo do intervalo com boa técnica → avança para o próximo tubo. Se não completar o mínimo com o próximo → mantém o atual e adiciona 1 série.",
   treinoA: {
-    label: "Treino A — Superior · Elásticos", tag: "Braços", dias: "Seg / Qui",
+    label: "Treino A — Superior · Elásticos", tag: "Braços", dias: "Ter / Sex",
     foco: "Tempo 3-1-2 em todos os exercícios. Âncora de porta para exercícios indicados. Cardio pós-treino: corda ou crawl · 15–20min · zona 2.",
     exercicios: [
       { nome: "Flexão", volume: "4×10–12", obs: "Peito · Tríceps · Deltóide anterior", tipo: "corpo",
@@ -158,7 +158,7 @@ const TREINO_SEM_ACADEMIA = {
     ]},
   },
   treinoB: {
-    label: "Treino B — Inferior · Elásticos + Corpo", tag: "Anti-flacidez", dias: "Ter / Sex",
+    label: "Treino B — Inferior · Elásticos + Corpo", tag: "Anti-flacidez", dias: "Seg / Qui",
     foco: "Tempo 3-1-2. Mochila carregada progride semana a semana — registre o peso. Sem cardio pós-treino neste dia.",
     exercicios: [
       { nome: "Agachamento Sumo", volume: "3×12", obs: "Adutores · Glúteo · Quadríceps",
@@ -592,7 +592,7 @@ function CardioPostTreinoABlock() {
   ];
   return (
     <div style={{ background: "#378ADD10", border: "0.5px solid #378ADD30", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
-      <div style={{ fontSize: 11, fontWeight: 500, color: "#378ADD", letterSpacing: "0.06em", marginBottom: 4 }}>CARDIO PÓS-TREINO A — SEG / QUI</div>
+      <div style={{ fontSize: 11, fontWeight: 500, color: "#378ADD", letterSpacing: "0.06em", marginBottom: 4 }}>CARDIO PÓS-TREINO A — TER / SEX</div>
       <div style={{ fontSize: 11, color: "var(--color-text-tertiary)", marginBottom: 12 }}>15–20 min · Zona 2 · Escolha uma opção por sessão</div>
       <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
         {opcoes.map((op, i) => (
@@ -617,7 +617,7 @@ function NatacaoProgressaoBlock() {
   return (
     <div style={{ background: "var(--color-background-primary)", border: "0.5px solid var(--color-border-tertiary)", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
       <div style={{ fontSize: 11, fontWeight: 500, color: "var(--color-text-tertiary)", letterSpacing: "0.06em", marginBottom: 12 }}>NATAÇÃO PEITO — PROGRESSÃO 8 SEMANAS</div>
-      <div style={{ fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6, marginBottom: 12 }}>Sáb ou Dom · Foco no chute: fechar as pernas com força sentindo a contração na coxa interna.</div>
+      <div style={{ fontSize: 11, color: "var(--color-text-secondary)", lineHeight: 1.6, marginBottom: 12 }}>Sáb ou Dom · Foco no chute: fechar as pernas com força sentindo a contração na coxa interna. Descanso controlado 45–60s entre séries.</div>
       {TREINO_SEM_ACADEMIA.natacaoProgressao.map((n, i) => (
         <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: i < TREINO_SEM_ACADEMIA.natacaoProgressao.length - 1 ? 8 : 0 }}>
           <span style={{ fontSize: 10, fontWeight: 600, color: "#378ADD", background: "#378ADD18", borderRadius: 4, padding: "2px 8px", whiteSpace: "nowrap", minWidth: 60, textAlign: "center" }}>{n.sem}</span>
@@ -653,7 +653,7 @@ function TreinoTab({ mode }) {
           {[
             { sem: "Sem 1–2", desc: "Adaptação ao tempo 3-1-2. Foco em técnica. Registrar tubo e reps.", cor: "#E2635A" },
             { sem: "Sem 3–4", desc: "Primeira progressão de tubo nos exercícios mais fáceis.", cor: COLORS.protein },
-            { sem: "Sem 5–6", desc: "Revisão geral de tubos. Natação entra em 6×40 ciclos.", cor: COLORS.carb },
+            { sem: "Sem 5–6", desc: "Revisão geral de tubos. Natação entra em 8×40 ciclos.", cor: COLORS.carb },
             { sem: "Sem 7–8", desc: "Segunda progressão de tubo. Preparação para retorno em julho.", cor: "#378ADD" },
           ].map((m, i) => (
             <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: i < 3 ? 10 : 0 }}>
